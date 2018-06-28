@@ -7,9 +7,9 @@ library(readxl)
 library(tidyr)
 
 # download data
-download(
-  'https://cepa.stanford.edu/sites/default/files/reardon_gender_achievement_gaps_june2018.xlsx',
-  'data/reardon_gender_achievement_gaps_june2018.xlsx')
+# download(
+#   'https://cepa.stanford.edu/sites/default/files/reardon_gender_achievement_gaps_june2018.xlsx',
+#   'data/reardon_gender_achievement_gaps_june2018.xlsx')
 
 # read in the data
 genderGaps <- read_excel('data/reardon_gender_achievement_gaps_june2018.xlsx',sheet='Data')
@@ -48,6 +48,8 @@ m2 <- lm(data=genderGaps, gap_ela ~ ses)
 summary(m2)
 
 
+# what changes? 
+lm(data=genderGaps, gap_math ~ `Male-Female SES Composite Difference`) %>% summary()
 
 
 
